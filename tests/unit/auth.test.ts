@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { authErrorKey } from "@/lib/auth/errors";
+import { describe, expect, it, vi } from "vitest";
+import { authErrorKey, logAuthError } from "@/lib/auth/errors";
 import { fieldErrorsFrom, signInSchema, signUpSchema } from "@/lib/auth/schemas";
 
 describe("signUpSchema", () => {
@@ -58,9 +58,30 @@ describe("authErrorKey", () => {
     [{ status: 429 }, "rateLimited"],
     [{ code: "weak_password" }, "passwordWeak"],
     [{ code: "same_password" }, "samePassword"],
+    [{ code: "email_address_not_authorized", status: 400 }, "emailNotAuthorized"],
+    [{ code: "signup_disabled" }, "signupDisabled"],
+    [{ name: "AuthRetryableFetchError", status: 0 }, "serviceUnavailable"],
+    [{ status: 401 }, "serviceUnavailable"],
+    [{ status: 500 }, "serviceUnavailable"],
     [{ code: "something_new" }, "generic"],
     [null, "generic"],
   ])("maps %j to %s", (error, key) => {
     expect(authErrorKey(error)).toBe(key);
+  });
+});
+
+describe("logAuthError", () => {
+  it("logs the code and status but never an email address", () => {
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
+    logAuthError("signUp", {
+      code: "email_address_invalid",
+      status: 400,
+      message: 'Email address "sanne@example.com" is invalid',
+    });
+    const logged = spy.mock.calls.flat().join(" ");
+    expect(logged).toContain("email_address_invalid");
+    expect(logged).toContain("400");
+    expect(logged).not.toContain("sanne@example.com");
+    spy.mockRestore();
   });
 });

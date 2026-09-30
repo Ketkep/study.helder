@@ -213,6 +213,9 @@
       "rateLimited": "Te veel pogingen. Wacht een paar minuten en probeer het dan opnieuw.",
       "sessionExpired": "Je bent uitgelogd. Log opnieuw in om verder te gaan.",
       "currentPasswordWrong": "Je huidige wachtwoord klopt niet.",
+      "emailNotAuthorized": "Study kan nog geen e-mail naar dit adres sturen. Tijdens de testfase gaat e-mail alleen naar goedgekeurde adressen.",
+      "signupDisabled": "Een account maken kan op dit moment niet.",
+      "serviceUnavailable": "Study kan de accountservice nu niet bereiken. Probeer het over een paar minuten opnieuw.",
       "generic": "Er ging iets mis. Probeer het opnieuw."
     }
   },

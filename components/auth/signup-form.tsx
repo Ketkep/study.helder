@@ -45,6 +45,7 @@ export function SignupForm({ captcha }: { captcha: CaptchaConfig }) {
         id="signup-age"
         name="age"
         label={t("signup.age")}
+        defaultChecked={state.age}
         required
         error={fieldError(state.fieldErrors?.age)}
       />

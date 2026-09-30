@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
 import { defaultLocale, isLocale, type Locale } from "@/i18n/routing";
 import { createClient } from "@/lib/supabase/server";
-import { authErrorKey } from "./errors";
+import { authErrorKey, logAuthError } from "./errors";
 import { getRequestOrigin } from "./origin";
 import { safeNextPath } from "./redirect";
 import {
@@ -24,6 +24,8 @@ export type FormState = {
   fieldErrors?: Partial<Record<FieldName, AuthErrorKey>>;
   /** Re-fills the email field after an error. Never the password. */
   email?: string;
+  /** Keeps the age checkbox ticked after an error. */
+  age?: boolean;
 };
 
 function str(formData: FormData, key: string): string | undefined {
@@ -43,6 +45,31 @@ function captchaToken(formData: FormData): string | undefined {
   return str(formData, "cf-turnstile-response") || undefined;
 }
 
+// Errors caused by what the user typed. Everything else goes to the server log.
+const EXPECTED_ERRORS = new Set<AuthErrorKey>([
+  "invalidCredentials",
+  "emailNotConfirmed",
+  "passwordWeak",
+  "samePassword",
+  "emailInvalid",
+]);
+
+/** Message key for a Supabase error, logging the ones worth looking into. */
+function failure(action: string, error: Parameters<typeof authErrorKey>[0]): AuthErrorKey {
+  const key = authErrorKey(error);
+  if (!EXPECTED_ERRORS.has(key)) logAuthError(action, error);
+  return key;
+}
+
+// Errors worth showing on forms that otherwise always report success
+// (they reveal nothing about whether an account exists).
+const SHOWN_ON_EMAIL_FORMS = new Set<AuthErrorKey>([
+  "rateLimited",
+  "captchaFailed",
+  "emailNotAuthorized",
+  "serviceUnavailable",
+]);
+
 function userLocale(metadata: Record<string, unknown> | undefined, fallback: Locale): Locale {
   const value = metadata?.locale;
   return isLocale(value) ? value : fallback;
@@ -55,8 +82,9 @@ export async function signUp(_prev: FormState, formData: FormData): Promise<Form
     password: str(formData, "password"),
     age: str(formData, "age"),
   });
+  const age = str(formData, "age") === "on";
   if (!parsed.success) {
-    return { status: "error", fieldErrors: fieldErrorsFrom(parsed.error), email: str(formData, "email") };
+    return { status: "error", fieldErrors: fieldErrorsFrom(parsed.error), email: str(formData, "email"), age };
   }
 
   const supabase = await createClient();
@@ -72,11 +100,12 @@ export async function signUp(_prev: FormState, formData: FormData): Promise<Form
   });
 
   if (error) {
-    const key = authErrorKey(error);
+    const key = failure("signUp", error);
     return {
       status: "error",
       ...(key === "passwordWeak" ? { fieldErrors: { password: key } } : { error: key }),
       email: parsed.data.email,
+      age,
     };
   }
 
@@ -103,7 +132,7 @@ export async function signIn(_prev: FormState, formData: FormData): Promise<Form
   });
 
   if (error || !data.user) {
-    return { status: "error", error: authErrorKey(error), email: parsed.data.email };
+    return { status: "error", error: failure("signIn", error), email: parsed.data.email };
   }
 
   const preferred = userLocale(data.user.user_metadata, locale);
@@ -133,8 +162,8 @@ export async function requestPasswordReset(_prev: FormState, formData: FormData)
 
   // Only show errors the user can act on; otherwise always report success so
   // this form doesn't reveal which addresses have an account.
-  const key = error ? authErrorKey(error) : null;
-  if (key === "rateLimited" || key === "captchaFailed") {
+  const key = error ? failure("requestPasswordReset", error) : null;
+  if (key && SHOWN_ON_EMAIL_FORMS.has(key)) {
     return { status: "error", error: key, email: parsed.data.email };
   }
   return { status: "success" };
@@ -156,8 +185,8 @@ export async function resendConfirmation(_prev: FormState, formData: FormData): 
     },
   });
 
-  const key = error ? authErrorKey(error) : null;
-  if (key === "rateLimited" || key === "captchaFailed") {
+  const key = error ? failure("resendConfirmation", error) : null;
+  if (key && SHOWN_ON_EMAIL_FORMS.has(key)) {
     return { status: "error", error: key, email: parsed.data.email };
   }
   return { status: "success" };
@@ -200,7 +229,7 @@ export async function updatePassword(_prev: FormState, formData: FormData): Prom
       password: current.data.currentPassword,
     });
     if (verifyError) {
-      const key = authErrorKey(verifyError);
+      const key = failure("verifyCurrentPassword", verifyError);
       return key === "invalidCredentials"
         ? { status: "error", fieldErrors: { currentPassword: "currentPasswordWrong" } }
         : { status: "error", error: key };
@@ -209,7 +238,7 @@ export async function updatePassword(_prev: FormState, formData: FormData): Prom
 
   const { error } = await supabase.auth.updateUser({ password: parsed.data.password });
   if (error) {
-    const key = authErrorKey(error);
+    const key = failure("updatePassword", error);
     return key === "passwordWeak" || key === "samePassword"
       ? { status: "error", fieldErrors: { password: key } }
       : { status: "error", error: key };
@@ -231,5 +260,6 @@ export async function updateLanguage(formData: FormData): Promise<void> {
   if (!userData.user) redirect(`/${current}/login`);
 
   const { error } = await supabase.auth.updateUser({ data: { locale: requested } });
+  if (error) logAuthError("updateLanguage", error);
   redirect(`/${requested}/settings?notice=${error ? "language-error" : "language-saved"}`);
 }

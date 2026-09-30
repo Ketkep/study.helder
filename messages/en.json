@@ -213,6 +213,9 @@
       "rateLimited": "Too many attempts. Wait a few minutes and try again.",
       "sessionExpired": "You've been logged out. Log in again to continue.",
       "currentPasswordWrong": "Your current password isn't right.",
+      "emailNotAuthorized": "Study can't send email to this address yet. During the test phase, email only goes to approved addresses.",
+      "signupDisabled": "Creating an account isn't possible right now.",
+      "serviceUnavailable": "Study can't reach the account service right now. Please try again in a few minutes.",
       "generic": "Something went wrong. Please try again."
     }
   },
