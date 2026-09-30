@@ -189,3 +189,9 @@ Small technical choices made while building Phase 1 (Owner: claude, allowed by S
 - **Decision:** Keep it that way while only the owner tests. Every push deploys to the production `.vercel.app` address, which is the review link. Side benefit: Vercel Cron (production only) runs, so the Supabase keep-alive works.
 - **Safeguard:** Nothing is indexed and `/styleguide` stays available until Study is live on its real domain (`isPubliclyLaunched()`: production deployment and `NEXT_PUBLIC_SITE_URL` set). Pages carry `noindex` and `robots.txt` disallows everything until then.
 - **Later:** When we create `main` (the owner's call), switch Vercel's production branch to it and set `NEXT_PUBLIC_SITE_URL` at launch.
+
+## 2026-10-01: Setup self-check at /api/health
+
+- **Owner:** claude
+- **Decision:** `/api/health` checks the Supabase URL and key (shape, and whether Supabase accepts them), the keep-alive function and `CRON_SECRET`, and returns plain-language advice. It never shows a key (only its type) and returns 404 once Study is publicly launched.
+- **Reason:** The owner's first sign-up failed with a configuration error; diagnosing it through Vercel's logs is hard for a non-developer. Everything it reveals (the Supabase host) is already public in the browser bundle.

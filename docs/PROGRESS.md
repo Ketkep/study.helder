@@ -35,6 +35,7 @@
 - [x] Privacy and Terms placeholders (EN + NL, marked as draft)
 - [x] 404 and error pages in both languages
 - [x] Keep-alive cron endpoint + `vercel.json` (Frankfurt region, daily cron)
+- [x] Setup self-check at `/api/health` (plain-language advice, never shows keys, off after public launch)
 - [x] Tests: 63 unit tests (Vitest), 37 end-to-end tests on desktop and phone (Playwright, against local Supabase and the production build), client bundle secret scan
 - [x] CI workflow (GitHub Actions): lint, types, formatting, unit tests, build, bundle scan, end-to-end
 - [ ] Owner: Supabase cloud project, Vercel project, URL settings (see `docs/SETUP.md`)

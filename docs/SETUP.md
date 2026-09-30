@@ -79,7 +79,7 @@ On your production address from step 2.6:
 3. Try **Uitloggen**, log in again, change the language in **Instellingen**, and try **Wachtwoord vergeten?**.
 4. The design system page is at `/nl/styleguide`. It disappears once Study launches on `study.helderlabs.com`.
 
-If something doesn't work, tell me what you did and what you saw (a screenshot helps).
+If something doesn't work, open **your address + `/api/health`** (for example `https://study-helder.vercel.app/api/health`). It checks the settings and says in plain words what to fix, without showing any key. Still stuck? Tell me what you did and what you saw (a screenshot helps).
 
 ---
 

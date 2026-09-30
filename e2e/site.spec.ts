@@ -71,6 +71,16 @@ test.describe("landing page and language", () => {
     expect(headers["x-powered-by"]).toBeUndefined();
   });
 
+  test("the setup self-check reports a working configuration", async ({ request }) => {
+    const response = await request.get("/api/health");
+    expect(response.status()).toBe(200);
+    const body = await response.json();
+    expect(body.advice).toEqual([]);
+    expect(body.details.database).toBe("ok");
+    // Never includes the key itself.
+    expect(JSON.stringify(body)).not.toContain("sb_publishable_");
+  });
+
   test("the skip link moves focus to the main content", async ({ page, isMobile }) => {
     test.skip(isMobile, "Keyboard navigation is a desktop concern");
     await page.goto("/nl");
