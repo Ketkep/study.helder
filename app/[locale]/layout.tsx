@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 import { isLocale } from "@/i18n/routing";
+import { isPubliclyLaunched } from "@/lib/env";
 import { getSiteUrl } from "@/lib/site-url";
 import { atkinson, atkinsonMono } from "../fonts";
 
@@ -18,6 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: t("description"),
     applicationName: "Study",
     formatDetection: { telephone: false, email: false, address: false },
+    // Test deployments must not show up in search results.
+    ...(isPubliclyLaunched() ? {} : { robots: { index: false, follow: false } }),
   };
 }
 

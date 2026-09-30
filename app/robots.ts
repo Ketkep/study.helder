@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { isProductionDeployment } from "@/lib/env";
+import { isPubliclyLaunched } from "@/lib/env";
 
 export default function robots(): MetadataRoute.Robots {
-  // Previews and local builds are never indexed.
-  if (!isProductionDeployment()) {
+  // Nothing is indexed before launch on the real domain (previews, test deployments, local).
+  if (!isPubliclyLaunched()) {
     return { rules: [{ userAgent: "*", disallow: "/" }] };
   }
   return {

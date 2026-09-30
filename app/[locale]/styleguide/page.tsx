@@ -13,7 +13,7 @@ import { MasteryBar, ProgressBar } from "@/components/ui/progress";
 import { Highlight, SourceLabel } from "@/components/ui/source-label";
 import { EmptyState, ErrorState, LoadingState, Skeleton } from "@/components/ui/states";
 import { Surface } from "@/components/ui/surface";
-import { isProductionDeployment } from "@/lib/env";
+import { isPubliclyLaunched } from "@/lib/env";
 import { masteryLevel } from "@/lib/mastery";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -31,7 +31,7 @@ function Block({ title, children }: { title: string; children: ReactNode }) {
 }
 
 export default async function StyleguidePage() {
-  if (isProductionDeployment()) notFound();
+  if (isPubliclyLaunched()) notFound();
   const t = await getTranslations();
   const s = await getTranslations("styleguide");
 

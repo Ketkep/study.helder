@@ -51,30 +51,33 @@ Order: **1. Supabase → 2. Vercel → 3. Supabase URL settings → 4. Test.**
      Copy the output as the value of `CRON_SECRET`.
 
    - Leave `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` out for now.
-5. Click **Deploy**. The first deploy builds the `main` branch, which is still empty, so it may fail. That's fine.
-6. To see the work in progress: open the project → **Deployments**. Every push to the branch `claude/study-helderlabs-setup-qplao1` creates a **Preview** deployment. Click it, then **Visit**. That link is what you review after each phase.
-   - Tip: the preview also has a stable **branch URL** that always shows the latest version of the branch. Find it under the deployment's **Domains**; it looks like `study-helder-git-claude-study-helderlabs-setup-qplao1-yourname.vercel.app`.
-7. Environment variables apply to new deployments only. If you add them after a deploy, open the latest preview deployment, click **⋯** → **Redeploy**.
+5. Click **Deploy**.
+6. **Where to find the app.** The repository has no `main` branch yet, so Vercel uses the working branch `claude/study-helderlabs-setup-qplao1` as the **production** branch. Every push Claude makes to it deploys automatically.
+   - Open the project → **Overview**. Once a deployment is ready, the **Production Deployment** box shows a screenshot and a **Visit** button. That address (it ends in `.vercel.app`) is the link you review after each phase.
+   - You'll find the same address under **Domains** in the left menu.
+   - It's reachable for anyone who has the link, but it isn't listed in search engines, and only you can confirm accounts while Supabase's built-in email is used.
+7. **Check the environment variables.** Left menu **Environment Variables**: the three variables above must be there, with **All Environments** ticked. If you add or change one later, go to **Deployments**, click **⋯** next to the newest deployment → **Redeploy**, because variables only apply to new deployments.
 
 ## 3. Tell Supabase which web addresses may receive login links
 
 Email links only work for addresses on Supabase's allow list.
 
 1. Supabase → **Authentication** → **URL Configuration**.
-2. **Site URL:** your stable branch URL from step 2.6, e.g. `https://study-helder-git-claude-study-helderlabs-setup-qplao1-yourname.vercel.app`. (We change this to `https://study.helderlabs.com` at launch.)
-3. **Redirect URLs** → **Add URL**, add both:
-   - `https://*-yourname.vercel.app/**` (replace `yourname` with the part your Vercel URLs end with, so every preview works)
+2. **Site URL:** your production address from step 2.6, e.g. `https://study-helder.vercel.app` (copy it exactly from Vercel's **Domains** page, starting with `https://`). We change this to `https://study.helderlabs.com` at launch.
+3. **Redirect URLs** → **Add URL**, add these three:
+   - your production address followed by `/**`, e.g. `https://study-helder.vercel.app/**`
+   - `https://*-casreumerman305-1026s-projects.vercel.app/**` (covers Vercel's other addresses for your project)
    - `http://localhost:3000/**`
 4. Click **Save**.
 
 ## 4. Test it
 
-On the preview link:
+On your production address from step 2.6:
 
 1. Click **Begin met leren**, create an account with **your own email address** (the one you used for Supabase), tick the age box.
 2. Open the email ("Confirm your email address") **in the same browser** and click **Confirm email address**. You should land on your dashboard. (If you open it in another browser or on your phone, your account still gets confirmed; you'll see a green message and just log in.)
 3. Try **Uitloggen**, log in again, change the language in **Instellingen**, and try **Wachtwoord vergeten?**.
-4. The design system page is at `/nl/styleguide` (only on previews, never in production).
+4. The design system page is at `/nl/styleguide`. It disappears once Study launches on `study.helderlabs.com`.
 
 If something doesn't work, tell me what you did and what you saw (a screenshot helps).
 

@@ -49,3 +49,13 @@ export function isProductionDeployment(): boolean {
   if (process.env.VERCEL_ENV) return process.env.VERCEL_ENV === "production";
   return process.env.NODE_ENV === "production" && process.env.STUDY_ENV === "production";
 }
+
+/**
+ * True only once Study is live on its real domain: the production deployment
+ * with NEXT_PUBLIC_SITE_URL set. Before that (while the owner tests on a
+ * *.vercel.app address) pages are not indexed and the design system page
+ * stays available.
+ */
+export function isPubliclyLaunched(): boolean {
+  return isProductionDeployment() && Boolean(emptyToUndefined(process.env.NEXT_PUBLIC_SITE_URL));
+}

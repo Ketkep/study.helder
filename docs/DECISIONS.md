@@ -181,3 +181,11 @@ Small technical choices made while building Phase 1 (Owner: claude, allowed by S
 - **Consequence:** A default-email link signs you in directly only in the browser where you signed up. Opened elsewhere, the account is still confirmed and the login page says so. Password-reset links must be opened in the same browser.
 - **Later:** Study's own Dutch/English templates (already in `supabase/templates`) get switched on together with Resend, before other people sign up.
 - **Rejected:** Setting up Resend now (owner chose to do it later); Supabase Pro (paid).
+
+## 2026-10-01: The working branch is Vercel's production branch for now
+
+- **Owner:** claude (follows from how Vercel set up the project; no product impact)
+- **Finding:** The repository has no `main` branch, so Vercel made `claude/study-helderlabs-setup-qplao1` the production branch.
+- **Decision:** Keep it that way while only the owner tests. Every push deploys to the production `.vercel.app` address, which is the review link. Side benefit: Vercel Cron (production only) runs, so the Supabase keep-alive works.
+- **Safeguard:** Nothing is indexed and `/styleguide` stays available until Study is live on its real domain (`isPubliclyLaunched()`: production deployment and `NEXT_PUBLIC_SITE_URL` set). Pages carry `noindex` and `robots.txt` disallows everything until then.
+- **Later:** When we create `main` (the owner's call), switch Vercel's production branch to it and set `NEXT_PUBLIC_SITE_URL` at launch.

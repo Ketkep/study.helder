@@ -29,7 +29,7 @@
 - [x] Auth: sign up with email confirmation and age checkbox, log in, log out, forgot/reset password, resend confirmation, protected routes, persistent sessions, language saved to the account, change password (asks for the current one)
 - [x] CAPTCHA support (Cloudflare Turnstile), off until keys are configured
 - [x] Security: nonce-based Content-Security-Policy, security headers, safe redirects after login, no user enumeration on sign-up and password reset, server-side validation with zod
-- [x] Design system: buttons, inputs, checkbox, badges, source labels, highlight, progress and mastery bars, tabs, dialog, surface, notices, empty/loading/error states, skeletons (`/nl/styleguide`, previews only)
+- [x] Design system: buttons, inputs, checkbox, badges, source labels, highlight, progress and mastery bars, tabs, dialog, surface, notices, empty/loading/error states, skeletons (`/nl/styleguide`, until public launch)
 - [x] Landing page (hero, how it works, product preview with demo subject, features, final CTA, footer with AI disclosure)
 - [x] App shell: desktop sidebar, phone top bar with account menu and bottom navigation; Home, Subjects, Flashcards, Progress, Settings
 - [x] Privacy and Terms placeholders (EN + NL, marked as draft)
@@ -47,7 +47,7 @@ Starts after approval. First step: propose the database schema, RLS policies and
 ## Known issues and limitations
 
 - **CAPTCHA is untested end to end.** Cloudflare is not reachable from the build environment. The widget renders and the security policy allows it; test it when turning it on before launch.
-- **The keep-alive cron only runs on production deployments.** Vercel runs cron jobs for the production deployment only, and `main` is still empty. Until Phase 1 is merged to `main`, the Supabase project can still pause after 7 days without use (resume it from the Supabase dashboard if that happens).
+- **The working branch is Vercel's production branch** (no `main` yet), so the review link is the production `.vercel.app` address and the keep-alive cron runs. Pages are not indexed until launch on the real domain.
 - **"Create a subject" buttons are disabled** until Phase 2.
 - **Language and age confirmation live in the auth user's metadata** until the `profiles` table exists (Phase 2 schema). They move there once the schema is approved.
 - **Export my data / delete my account** are Phase 7. Settings says to email info@helderlabs.com until then.
