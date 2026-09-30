@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/*
+ * Study design tokens. Approved 2026-09-30 (see docs/DECISIONS.md).
+ * Tailwind's default palette is removed so only these colors can be used.
+ */
+@theme {
+  --color-*: initial;
+
+  --color-navy-950: #0b1530;
+  --color-navy-900: #122247;
+  --color-navy-700: #2a3f73;
+  --color-navy-500: #5a6d9c;
+  --color-navy-300: #a9b4ce;
+  --color-navy-100: #e6eaf3;
+  --color-navy-50: #f2f4f9;
+
+  --color-paper: #f7f7f4;
+  --color-white: #ffffff;
+  --color-line: #e2e4e9;
+  --color-line-strong: #cdd1d9;
+  --color-ink: #141b2d;
+  --color-ink-muted: #5e6675;
+
+  /* The highlighter: "from your material" and things that are due. */
+  --color-yellow: #f5c443;
+  --color-yellow-soft: #fdf0c4;
+  --color-yellow-deep: #7a5500;
+
+  --color-success: #2f7a55;
+  --color-success-soft: #e7f2ec;
+  --color-error: #b3261e;
+  --color-error-soft: #fbeae8;
+  --color-warning: #a35200;
+  --color-warning-soft: #fbeedd;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  --text-xs: 0.78125rem; /* 12.5px, never smaller */
+  --text-xs--line-height: 1.4;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.45;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-reading: 1.125rem;
+  --text-reading--line-height: 1.6;
+  --text-heading: 1.375rem;
+  --text-heading--line-height: 1.25;
+  --text-title: 1.875rem;
+  --text-title--line-height: 1.15;
+  --text-display: 2.75rem;
+  --text-display--line-height: 1.08;
+
+  --shadow-float: 0 1px 2px rgb(11 21 48 / 0.06), 0 6px 18px rgb(11 21 48 / 0.05);
+  --shadow-raise: 0 1px 2px rgb(11 21 48 / 0.08);
+}
+
+@theme inline {
+  --font-sans: var(--font-atkinson), "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-atkinson-mono), ui-monospace, "Cascadia Mono", monospace;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-navy-900);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-yellow-soft);
+  }
+
+  dialog::backdrop {
+    background-color: rgb(11 21 48 / 0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,8 @@
+.next
+node_modules
+package-lock.json
+supabase/templates
+supabase/config.toml
+test-results
+playwright-report
+docs/SPEC.md

@@ -1,0 +1,366 @@
+{
+  "metadata": {
+    "defaultTitle": "Study: leer van je eigen materiaal",
+    "titleTemplate": "%s · Study",
+    "description": "Zet je aantekeningen en hoofdstukken erin. Study maakt er samenvattingen, flashcards, oefenvragen en studiesessies van, en laat zien waar het in je materiaal staat."
+  },
+  "common": {
+    "brand": "Study",
+    "byline": "by HelderLabs",
+    "homeLink": "Study, naar de startpagina",
+    "skipToContent": "Naar de inhoud",
+    "close": "Sluiten",
+    "cancel": "Annuleren",
+    "save": "Opslaan",
+    "loading": "Bezig met laden",
+    "comingSoon": "Binnenkort",
+    "draft": "Concept",
+    "contactEmail": "info@helderlabs.com"
+  },
+  "language": {
+    "label": "Taal",
+    "switchTo": "English",
+    "switchToLabel": "View this page in English",
+    "nl": "Nederlands",
+    "en": "English"
+  },
+  "nav": {
+    "main": "Hoofdmenu",
+    "dashboard": "Home",
+    "subjects": "Vakken",
+    "flashcards": "Flashcards",
+    "progress": "Voortgang",
+    "settings": "Instellingen",
+    "accountMenu": "Accountmenu",
+    "signedInAs": "Ingelogd als",
+    "signOut": "Uitloggen"
+  },
+  "site": {
+    "nav": "Sitemenu",
+    "howItWorks": "Zo werkt het",
+    "login": "Inloggen",
+    "start": "Begin met leren",
+    "toApp": "Naar Study",
+    "footer": {
+      "copyright": "© {year} HelderLabs",
+      "privacy": "Privacy",
+      "terms": "Voorwaarden",
+      "contact": "Contact",
+      "aiNote": "Study gebruikt AI om je materiaal te verwerken. AI kan fouten maken, daarom laat Study altijd zien waar iets vandaan komt."
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "Leer van je eigen materiaal.",
+      "lead": "Zet je aantekeningen en hoofdstukken erin. Study maakt er samenvattingen, flashcards, oefenvragen en studiesessies van, en laat steeds zien waar het in je materiaal staat.",
+      "primary": "Begin met leren",
+      "secondary": "Zo werkt het",
+      "demoLabel": "Voorbeeld: een passage uit je materiaal en de flashcard die daaruit is gemaakt",
+      "demoSource": "Hoofdstuk 2 · Koopkracht",
+      "demoYours": "Je materiaal",
+      "demoPassageBefore": "Als de prijzen sneller stijgen dan de lonen, ",
+      "demoPassageHighlight": "daalt de koopkracht: je kunt met hetzelfde inkomen minder kopen",
+      "demoPassageAfter": ". Dit heet een reële inkomensdaling.",
+      "demoQuestion": "Wat gebeurt er met je koopkracht als de prijzen sneller stijgen dan je loon?",
+      "demoAnswer": "Die daalt. Je kunt met hetzelfde inkomen minder kopen.",
+      "demoCitation": "Uit je materiaal · H2, alinea 3"
+    },
+    "how": {
+      "title": "Zo werkt het",
+      "steps": {
+        "add": {
+          "title": "Voeg je materiaal toe",
+          "body": "Plak tekst of upload een PDF of Word-bestand."
+        },
+        "understand": {
+          "title": "Study zet het op een rij",
+          "body": "Onderwerpen, begrippen en wat je moet kennen, met verwijzingen naar je eigen tekst."
+        },
+        "practice": {
+          "title": "Oefen en herhaal",
+          "body": "Flashcards, quizvragen en korte studiesessies die meebewegen met hoe het gaat."
+        },
+        "return": {
+          "title": "Kom terug en word beter",
+          "body": "Study onthoudt wat je lastig vindt en zet het klaar voor de volgende keer."
+        }
+      }
+    },
+    "product": {
+      "title": "Zo ziet het eruit",
+      "lead": "Een voorbeeld met een demovak over inflatie en koopkracht.",
+      "exampleBadge": "Voorbeeld",
+      "subject": "Economie: Inflatie & Koopkracht",
+      "topicsTitle": "Onderwerpen",
+      "topics": {
+        "inflation": "Inflatie",
+        "purchasingPower": "Koopkracht",
+        "realIncome": "Nominaal en reëel inkomen"
+      },
+      "summaryTitle": "Samenvatting",
+      "summaryBody1": "Inflatie betekent dat het algemene prijspeil stijgt. Met hetzelfde bedrag kun je minder kopen, dus je koopkracht daalt.",
+      "summaryBody2": "Of je dat merkt, hangt af van je inkomen: stijgt je loon even hard als de prijzen, dan blijft je reële inkomen gelijk.",
+      "quizTitle": "Quiz",
+      "quizQuestion": "Je loon stijgt 2% en de inflatie is 5%. Wat gebeurt er met je reële inkomen?",
+      "quizOptionA": "Dat stijgt met 3%",
+      "quizOptionB": "Dat daalt met ongeveer 3%",
+      "quizOptionC": "Dat blijft gelijk",
+      "quizFeedbackTitle": "Bijna. Laten we er nog eens naar kijken.",
+      "quizFeedbackBody": "De prijzen stijgen harder dan je loon, dus je kunt minder kopen. Je reële inkomen daalt met ongeveer 3%.",
+      "quizYourAnswer": "Jouw antwoord",
+      "quizCorrect": "Goede antwoord"
+    },
+    "features": {
+      "title": "Wat Study doet",
+      "items": {
+        "grounded": {
+          "title": "Alles uit je eigen materiaal",
+          "body": "Antwoorden verwijzen naar de passage waar het staat. Staat het er niet in, dan zegt Study dat."
+        },
+        "flashcards": {
+          "title": "Flashcards op het juiste moment",
+          "body": "Kaarten die je lastig vindt, komen vaker terug."
+        },
+        "quizzes": {
+          "title": "Quizzen met uitleg",
+          "body": "Fout? Je ziet waarom, en waar het in je materiaal staat."
+        },
+        "sessions": {
+          "title": "Studiesessies die meebewegen",
+          "body": "Gaat het goed, dan wordt het moeilijker. Loop je vast, dan pakt Study het anders aan."
+        },
+        "ask": {
+          "title": "Vraag het Study",
+          "body": "Stel vragen over je stof. Study zoekt alleen online als jij dat goed vindt, en dat staat er dan duidelijk bij."
+        },
+        "languages": {
+          "title": "Nederlands en Engels",
+          "body": "Materiaal in het Engels? Je krijgt uitleg in het Nederlands, met de begrippen zoals ze in je tekst staan."
+        }
+      }
+    },
+    "cta": {
+      "title": "Zet je eerste hoofdstuk erin.",
+      "body": "Study is gratis zolang het in de testfase is.",
+      "button": "Begin met leren"
+    }
+  },
+  "auth": {
+    "email": "E-mailadres",
+    "password": "Wachtwoord",
+    "currentPassword": "Huidig wachtwoord",
+    "newPassword": "Nieuw wachtwoord",
+    "passwordHint": "Minstens 8 tekens.",
+    "captchaLabel": "Beveiligingscontrole",
+    "login": {
+      "title": "Inloggen",
+      "lead": "Fijn dat je er weer bent.",
+      "submit": "Inloggen",
+      "forgot": "Wachtwoord vergeten?",
+      "noAccount": "Nog geen account?",
+      "toSignup": "Account maken"
+    },
+    "signup": {
+      "title": "Account maken",
+      "lead": "Gratis zolang Study in de testfase is.",
+      "age": "Ik ben 16 jaar of ouder",
+      "submit": "Account maken",
+      "legal": "Door een account te maken ga je akkoord met de <terms>voorwaarden</terms> en de <privacy>privacyverklaring</privacy>.",
+      "haveAccount": "Heb je al een account?",
+      "toLogin": "Inloggen"
+    },
+    "checkEmail": {
+      "title": "Kijk in je inbox",
+      "body": "We hebben je een e-mail gestuurd met een link om je account te bevestigen. De link werkt één keer en verloopt na een tijdje.",
+      "notReceived": "Geen e-mail gekregen? Kijk in je spammap, of stuur de link opnieuw.",
+      "resend": "Stuur de link opnieuw",
+      "resent": "Als er een onbevestigd account bij dit e-mailadres hoort, hebben we een nieuwe link gestuurd.",
+      "back": "Terug naar inloggen"
+    },
+    "forgot": {
+      "title": "Wachtwoord vergeten?",
+      "lead": "Vul je e-mailadres in. We sturen je een link om een nieuw wachtwoord te kiezen.",
+      "submit": "Stuur link",
+      "sent": "Als er een account bij dit e-mailadres hoort, krijg je binnen een paar minuten een e-mail.",
+      "back": "Terug naar inloggen"
+    },
+    "reset": {
+      "title": "Kies een nieuw wachtwoord",
+      "lead": "Je blijft op dit apparaat ingelogd.",
+      "submit": "Wachtwoord opslaan",
+      "invalidTitle": "Deze link werkt niet meer",
+      "invalidBody": "Vraag een nieuwe link aan om een nieuw wachtwoord te kiezen.",
+      "requestNew": "Nieuwe link aanvragen"
+    },
+    "linkError": {
+      "title": "Deze link werkt niet meer",
+      "body": "Links in onze e-mails werken maar één keer en verlopen na een tijdje. Vraag een nieuwe aan.",
+      "toLogin": "Inloggen",
+      "toForgot": "Wachtwoord vergeten?"
+    },
+    "errors": {
+      "emailInvalid": "Vul een geldig e-mailadres in.",
+      "passwordRequired": "Vul je wachtwoord in.",
+      "passwordTooShort": "Gebruik minstens 8 tekens.",
+      "passwordTooLong": "Gebruik maximaal 72 tekens.",
+      "passwordWeak": "Kies een sterker wachtwoord.",
+      "samePassword": "Kies een ander wachtwoord dan je huidige.",
+      "ageRequired": "Study is voor mensen van 16 jaar en ouder.",
+      "invalidCredentials": "Dat e-mailadres of wachtwoord klopt niet.",
+      "emailNotConfirmed": "Bevestig eerst je e-mailadres. Kijk in je inbox voor de link.",
+      "captchaFailed": "De beveiligingscontrole is niet gelukt. Probeer het opnieuw.",
+      "rateLimited": "Te veel pogingen. Wacht een paar minuten en probeer het dan opnieuw.",
+      "sessionExpired": "Je bent uitgelogd. Log opnieuw in om verder te gaan.",
+      "currentPasswordWrong": "Je huidige wachtwoord klopt niet.",
+      "generic": "Er ging iets mis. Probeer het opnieuw."
+    }
+  },
+  "app": {
+    "dashboard": {
+      "metaTitle": "Home",
+      "title": "Waar wil je mee beginnen?",
+      "emptyTitle": "Je hebt nog geen vakken",
+      "emptyBody": "Maak een vak aan en voeg je materiaal toe. Daarna zie je hier steeds wat je als volgende kunt doen.",
+      "emptyAction": "Vak maken",
+      "passwordUpdated": "Je nieuwe wachtwoord is opgeslagen."
+    },
+    "subjects": {
+      "metaTitle": "Vakken",
+      "title": "Vakken",
+      "emptyTitle": "Je hebt nog geen vakken",
+      "emptyBody": "In een vak staat alles voor één vak of toets bij elkaar: je materiaal, onderwerpen, flashcards en quizzen.",
+      "emptyAction": "Vak maken"
+    },
+    "flashcards": {
+      "metaTitle": "Flashcards",
+      "title": "Flashcards",
+      "emptyTitle": "Nog geen flashcards",
+      "emptyBody": "Flashcards maak je vanuit een vak. Zodra je kaarten hebt, zie je hier welke je vandaag moet herhalen."
+    },
+    "progress": {
+      "metaTitle": "Voortgang",
+      "title": "Voortgang",
+      "emptyTitle": "Nog niets te zien",
+      "emptyBody": "Zodra je gaat oefenen, zie je hier per onderwerp hoe het gaat en waar je nog aan moet werken."
+    },
+    "settings": {
+      "metaTitle": "Instellingen",
+      "title": "Instellingen",
+      "language": {
+        "title": "Taal",
+        "lead": "De taal van Study en van de uitleg die je krijgt.",
+        "submit": "Taal opslaan",
+        "saved": "Taal opgeslagen."
+      },
+      "account": {
+        "title": "Account",
+        "email": "E-mailadres"
+      },
+      "password": {
+        "title": "Wachtwoord wijzigen",
+        "submit": "Nieuw wachtwoord opslaan",
+        "saved": "Je nieuwe wachtwoord is opgeslagen."
+      },
+      "data": {
+        "title": "Je gegevens",
+        "body": "Je gegevens downloaden en je account verwijderen komt in een latere versie. Tot die tijd kun je mailen naar {email}, dan regelen we het voor je."
+      },
+      "signOut": {
+        "title": "Uitloggen",
+        "body": "Log uit op dit apparaat.",
+        "submit": "Uitloggen"
+      }
+    }
+  },
+  "mastery": {
+    "needs_work": "Moet nog geoefend",
+    "learning": "Aan het leren",
+    "strong": "Sterk",
+    "mastered": "Beheerst",
+    "label": "Beheersing van {topic}: {level}"
+  },
+  "sources": {
+    "user_material": "Uit je materiaal",
+    "ai_interpretation": "Gebaseerd op je materiaal",
+    "external": "Externe bron",
+    "mixed": "Per onderdeel"
+  },
+  "legal": {
+    "draftNotice": "Aan deze pagina wordt nog gewerkt. Voordat Study openbaar wordt, staat hier de volledige versie.",
+    "lastUpdated": "Laatst bijgewerkt: {date}",
+    "privacy": {
+      "metaTitle": "Privacy",
+      "title": "Privacyverklaring",
+      "points": {
+        "who": "Study is een persoonlijk project, uitgebracht onder de naam HelderLabs. Vragen over je gegevens: {email}.",
+        "yours": "Je materiaal is van jou. We verkopen het niet en gebruiken het niet om AI-modellen te trainen.",
+        "where": "Je account en je materiaal worden opgeslagen bij Supabase, in de EU.",
+        "cookies": "We gebruiken geen advertentie- of analysecookies en geen trackers. Alleen cookies die nodig zijn om je ingelogd te houden en je taal te onthouden.",
+        "delete": "Je kunt je account en al je gegevens laten verwijderen. Zolang dat nog niet in de app kan, mail je naar {email}."
+      }
+    },
+    "terms": {
+      "metaTitle": "Voorwaarden",
+      "title": "Gebruiksvoorwaarden",
+      "points": {
+        "age": "Study is voor mensen van 16 jaar en ouder.",
+        "material": "Upload alleen materiaal dat je mag gebruiken, zoals je eigen aantekeningen of lesstof die je van je school of opleiding hebt gekregen.",
+        "ai": "Study gebruikt AI. AI kan fouten maken. Controleer belangrijke dingen altijd in je eigen materiaal.",
+        "free": "Study is gratis zolang het in de testfase is. Voor AI-functies gelden daglimieten.",
+        "contact": "Vragen: {email}."
+      }
+    }
+  },
+  "errors": {
+    "notFoundTitle": "Deze pagina bestaat niet",
+    "notFoundBody": "Misschien is de link oud of zit er een typfout in.",
+    "notFoundAction": "Naar de startpagina",
+    "errorTitle": "Er ging iets mis",
+    "errorBody": "Je materiaal is veilig. Probeer het opnieuw.",
+    "errorAction": "Opnieuw proberen"
+  },
+  "styleguide": {
+    "title": "Designsysteem",
+    "lead": "Alle bouwstenen van Study op één plek. Alleen zichtbaar buiten productie.",
+    "buttons": "Knoppen",
+    "primary": "Begin met leren",
+    "secondary": "Zo werkt het",
+    "ghost": "Annuleren",
+    "danger": "Vak verwijderen",
+    "pending": "Bezig met opslaan",
+    "inputs": "Invoervelden",
+    "exampleEmail": "sanne@voorbeeld.nl",
+    "exampleError": "Gebruik minstens 8 tekens.",
+    "sourceLabels": "Bronlabels",
+    "highlightText": "De <mark>koopkracht is de hoeveelheid goederen en diensten die je met je inkomen kunt kopen</mark>. Tik op een gemarkeerde passage om hem in je materiaal te openen.",
+    "badges": "Labels",
+    "due": "8 te herhalen",
+    "topics": "3 onderwerpen",
+    "correct": "Goed",
+    "limit": "Limiet bereikt",
+    "tabs": "Tabbladen",
+    "tabOverview": "Overzicht",
+    "tabLearn": "Leren",
+    "tabMaterial": "Materiaal",
+    "tabAsk": "Vraag",
+    "tabPanel": "Inhoud van het tabblad \"{tab}\".",
+    "progress": "Voortgang en beheersing",
+    "sessionProgress": "Stap 4 van 9",
+    "dialog": "Dialoogvenster",
+    "openDialog": "Vak verwijderen",
+    "dialogTitle": "\"Economie: Inflatie & Koopkracht\" verwijderen?",
+    "dialogBody": "Hiermee verwijder je het vak met al het materiaal, de flashcards, quizzen en voortgang. Dit kun je niet ongedaan maken.",
+    "dialogConfirm": "Definitief verwijderen",
+    "notices": "Meldingen",
+    "noticeInfo": "Study heeft 3 onderwerpen in je materiaal gevonden.",
+    "noticeSuccess": "Je nieuwe wachtwoord is opgeslagen.",
+    "noticeWarning": "Je hebt de daglimiet voor samenvattingen bereikt. Om middernacht kun je weer verder.",
+    "noticeError": "Er ging iets mis bij het maken van je quiz. Je materiaal is veilig. Probeer het opnieuw.",
+    "states": "Lege, laad- en foutstatussen",
+    "emptyTitle": "Nog geen flashcards",
+    "emptyBody": "Flashcards maak je vanuit een vak.",
+    "loadingText": "Je vakken worden geladen",
+    "surface": "Vlak",
+    "surfaceBody": "Spaarzaam gebruikt: alleen voor het ene ding dat eruit moet springen."
+  }
+}

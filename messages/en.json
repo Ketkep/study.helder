@@ -1,0 +1,366 @@
+{
+  "metadata": {
+    "defaultTitle": "Study: learn from your own material",
+    "titleTemplate": "%s · Study",
+    "description": "Add your notes and chapters. Study turns them into summaries, flashcards, practice questions and study sessions, and shows where it found things in your material."
+  },
+  "common": {
+    "brand": "Study",
+    "byline": "by HelderLabs",
+    "homeLink": "Study, to the home page",
+    "skipToContent": "Skip to content",
+    "close": "Close",
+    "cancel": "Cancel",
+    "save": "Save",
+    "loading": "Loading",
+    "comingSoon": "Coming soon",
+    "draft": "Draft",
+    "contactEmail": "info@helderlabs.com"
+  },
+  "language": {
+    "label": "Language",
+    "switchTo": "Nederlands",
+    "switchToLabel": "Bekijk deze pagina in het Nederlands",
+    "nl": "Nederlands",
+    "en": "English"
+  },
+  "nav": {
+    "main": "Main menu",
+    "dashboard": "Home",
+    "subjects": "Subjects",
+    "flashcards": "Flashcards",
+    "progress": "Progress",
+    "settings": "Settings",
+    "accountMenu": "Account menu",
+    "signedInAs": "Signed in as",
+    "signOut": "Log out"
+  },
+  "site": {
+    "nav": "Site menu",
+    "howItWorks": "How it works",
+    "login": "Log in",
+    "start": "Start studying",
+    "toApp": "Go to Study",
+    "footer": {
+      "copyright": "© {year} HelderLabs",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact",
+      "aiNote": "Study uses AI to work with your material. AI can make mistakes, so Study always shows where something comes from."
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "Learn from your own material.",
+      "lead": "Add your notes and chapters. Study turns them into summaries, flashcards, practice questions and study sessions, and always shows where it found things in your material.",
+      "primary": "Start studying",
+      "secondary": "See how it works",
+      "demoLabel": "Example: a passage from your material and the flashcard made from it",
+      "demoSource": "Chapter 2 · Purchasing power",
+      "demoYours": "Your material",
+      "demoPassageBefore": "When prices rise faster than wages, ",
+      "demoPassageHighlight": "purchasing power falls: the same income buys less",
+      "demoPassageAfter": ". This is called a fall in real income.",
+      "demoQuestion": "What happens to your purchasing power when prices rise faster than your wage?",
+      "demoAnswer": "It falls. The same income buys less.",
+      "demoCitation": "From your material · Ch. 2, paragraph 3"
+    },
+    "how": {
+      "title": "How it works",
+      "steps": {
+        "add": {
+          "title": "Add your material",
+          "body": "Paste text or upload a PDF or Word file."
+        },
+        "understand": {
+          "title": "Study sorts it out",
+          "body": "Topics, key terms and what you need to know, linked to your own text."
+        },
+        "practice": {
+          "title": "Practice and review",
+          "body": "Flashcards, quiz questions and short study sessions that adjust to how you're doing."
+        },
+        "return": {
+          "title": "Come back and improve",
+          "body": "Study remembers what you find hard and has it ready next time."
+        }
+      }
+    },
+    "product": {
+      "title": "What it looks like",
+      "lead": "An example with a demo subject about inflation and purchasing power.",
+      "exampleBadge": "Example",
+      "subject": "Economics: Inflation & Purchasing Power",
+      "topicsTitle": "Topics",
+      "topics": {
+        "inflation": "Inflation",
+        "purchasingPower": "Purchasing power",
+        "realIncome": "Nominal and real income"
+      },
+      "summaryTitle": "Summary",
+      "summaryBody1": "Inflation means the general price level rises. With the same amount of money you can buy less, so your purchasing power falls.",
+      "summaryBody2": "Whether you notice it depends on your income: if your wage rises as fast as prices, your real income stays the same.",
+      "quizTitle": "Quiz",
+      "quizQuestion": "Your wage rises 2% and inflation is 5%. What happens to your real income?",
+      "quizOptionA": "It rises by 3%",
+      "quizOptionB": "It falls by about 3%",
+      "quizOptionC": "It stays the same",
+      "quizFeedbackTitle": "Almost. Let's look at it again.",
+      "quizFeedbackBody": "Prices rise faster than your wage, so you can buy less. Your real income falls by about 3%.",
+      "quizYourAnswer": "Your answer",
+      "quizCorrect": "Correct answer"
+    },
+    "features": {
+      "title": "What Study does",
+      "items": {
+        "grounded": {
+          "title": "Everything from your own material",
+          "body": "Answers point to the passage where it says so. If it's not in there, Study tells you."
+        },
+        "flashcards": {
+          "title": "Flashcards at the right moment",
+          "body": "Cards you find hard come back more often."
+        },
+        "quizzes": {
+          "title": "Quizzes that explain",
+          "body": "Got it wrong? You see why, and where it says so in your material."
+        },
+        "sessions": {
+          "title": "Study sessions that adapt",
+          "body": "Doing well? It gets harder. Stuck? Study tries a different angle."
+        },
+        "ask": {
+          "title": "Ask Study",
+          "body": "Ask questions about your material. Study only looks online when you say yes, and marks it clearly."
+        },
+        "languages": {
+          "title": "Dutch and English",
+          "body": "Material in Dutch? You get explanations in English, with key terms as they appear in your text."
+        }
+      }
+    },
+    "cta": {
+      "title": "Add your first chapter.",
+      "body": "Study is free while it's in beta.",
+      "button": "Start studying"
+    }
+  },
+  "auth": {
+    "email": "Email address",
+    "password": "Password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "passwordHint": "At least 8 characters.",
+    "captchaLabel": "Security check",
+    "login": {
+      "title": "Log in",
+      "lead": "Welcome back.",
+      "submit": "Log in",
+      "forgot": "Forgot your password?",
+      "noAccount": "No account yet?",
+      "toSignup": "Create an account"
+    },
+    "signup": {
+      "title": "Create an account",
+      "lead": "Free while Study is in beta.",
+      "age": "I am 16 or older",
+      "submit": "Create account",
+      "legal": "By creating an account you agree to the <terms>terms</terms> and the <privacy>privacy statement</privacy>.",
+      "haveAccount": "Already have an account?",
+      "toLogin": "Log in"
+    },
+    "checkEmail": {
+      "title": "Check your inbox",
+      "body": "We've sent you an email with a link to confirm your account. The link works once and expires after a while.",
+      "notReceived": "No email? Check your spam folder, or send the link again.",
+      "resend": "Send the link again",
+      "resent": "If there's an unconfirmed account with this email address, we've sent a new link.",
+      "back": "Back to log in"
+    },
+    "forgot": {
+      "title": "Forgot your password?",
+      "lead": "Enter your email address. We'll send you a link to choose a new password.",
+      "submit": "Send link",
+      "sent": "If there's an account with this email address, you'll get an email within a few minutes.",
+      "back": "Back to log in"
+    },
+    "reset": {
+      "title": "Choose a new password",
+      "lead": "You'll stay logged in on this device.",
+      "submit": "Save password",
+      "invalidTitle": "This link no longer works",
+      "invalidBody": "Request a new link to choose a new password.",
+      "requestNew": "Request a new link"
+    },
+    "linkError": {
+      "title": "This link no longer works",
+      "body": "Links in our emails only work once and expire after a while. Request a new one.",
+      "toLogin": "Log in",
+      "toForgot": "Forgot your password?"
+    },
+    "errors": {
+      "emailInvalid": "Enter a valid email address.",
+      "passwordRequired": "Enter your password.",
+      "passwordTooShort": "Use at least 8 characters.",
+      "passwordTooLong": "Use at most 72 characters.",
+      "passwordWeak": "Choose a stronger password.",
+      "samePassword": "Choose a different password from your current one.",
+      "ageRequired": "Study is for people aged 16 and over.",
+      "invalidCredentials": "That email address or password isn't right.",
+      "emailNotConfirmed": "Confirm your email address first. Look in your inbox for the link.",
+      "captchaFailed": "The security check didn't work. Please try again.",
+      "rateLimited": "Too many attempts. Wait a few minutes and try again.",
+      "sessionExpired": "You've been logged out. Log in again to continue.",
+      "currentPasswordWrong": "Your current password isn't right.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "app": {
+    "dashboard": {
+      "metaTitle": "Home",
+      "title": "Where do you want to start?",
+      "emptyTitle": "You don't have any subjects yet",
+      "emptyBody": "Create a subject and add your material. After that, you'll always see here what to do next.",
+      "emptyAction": "Create a subject",
+      "passwordUpdated": "Your new password is saved."
+    },
+    "subjects": {
+      "metaTitle": "Subjects",
+      "title": "Subjects",
+      "emptyTitle": "You don't have any subjects yet",
+      "emptyBody": "A subject holds everything for one course or exam: your material, topics, flashcards and quizzes.",
+      "emptyAction": "Create a subject"
+    },
+    "flashcards": {
+      "metaTitle": "Flashcards",
+      "title": "Flashcards",
+      "emptyTitle": "No flashcards yet",
+      "emptyBody": "You make flashcards from a subject. Once you have cards, you'll see here which ones to review today."
+    },
+    "progress": {
+      "metaTitle": "Progress",
+      "title": "Progress",
+      "emptyTitle": "Nothing to show yet",
+      "emptyBody": "Once you start practicing, you'll see how you're doing per topic and what still needs work."
+    },
+    "settings": {
+      "metaTitle": "Settings",
+      "title": "Settings",
+      "language": {
+        "title": "Language",
+        "lead": "The language of Study and of its explanations.",
+        "submit": "Save language",
+        "saved": "Language saved."
+      },
+      "account": {
+        "title": "Account",
+        "email": "Email address"
+      },
+      "password": {
+        "title": "Change password",
+        "submit": "Save new password",
+        "saved": "Your new password is saved."
+      },
+      "data": {
+        "title": "Your data",
+        "body": "Downloading your data and deleting your account will be added in a later version. Until then, email {email} and we'll take care of it."
+      },
+      "signOut": {
+        "title": "Log out",
+        "body": "Log out on this device.",
+        "submit": "Log out"
+      }
+    }
+  },
+  "mastery": {
+    "needs_work": "Needs work",
+    "learning": "Learning",
+    "strong": "Strong",
+    "mastered": "Mastered",
+    "label": "Mastery of {topic}: {level}"
+  },
+  "sources": {
+    "user_material": "From your material",
+    "ai_interpretation": "Based on your material",
+    "external": "External source",
+    "mixed": "Per section"
+  },
+  "legal": {
+    "draftNotice": "This page is still being written. The full version will be here before Study opens to the public.",
+    "lastUpdated": "Last updated: {date}",
+    "privacy": {
+      "metaTitle": "Privacy",
+      "title": "Privacy statement",
+      "points": {
+        "who": "Study is a personal project, published under the name HelderLabs. Questions about your data: {email}.",
+        "yours": "Your material is yours. We don't sell it and we don't use it to train AI models.",
+        "where": "Your account and material are stored with Supabase, in the EU.",
+        "cookies": "We don't use advertising or analytics cookies, and no trackers. Only cookies needed to keep you logged in and remember your language.",
+        "delete": "You can have your account and all your data deleted. Until this is available in the app, email {email}."
+      }
+    },
+    "terms": {
+      "metaTitle": "Terms",
+      "title": "Terms of use",
+      "points": {
+        "age": "Study is for people aged 16 and over.",
+        "material": "Only upload material you're allowed to use, such as your own notes or course material you received from your school or programme.",
+        "ai": "Study uses AI. AI can make mistakes. Always check important things in your own material.",
+        "free": "Study is free while it's in beta. Daily limits apply to AI features.",
+        "contact": "Questions: {email}."
+      }
+    }
+  },
+  "errors": {
+    "notFoundTitle": "This page doesn't exist",
+    "notFoundBody": "The link may be old, or there's a typo in it.",
+    "notFoundAction": "Go to the home page",
+    "errorTitle": "Something went wrong",
+    "errorBody": "Your material is safe. Please try again.",
+    "errorAction": "Try again"
+  },
+  "styleguide": {
+    "title": "Design system",
+    "lead": "Every building block of Study in one place. Only visible outside production.",
+    "buttons": "Buttons",
+    "primary": "Start studying",
+    "secondary": "See how it works",
+    "ghost": "Cancel",
+    "danger": "Delete subject",
+    "pending": "Saving",
+    "inputs": "Inputs",
+    "exampleEmail": "sanne@example.com",
+    "exampleError": "Use at least 8 characters.",
+    "sourceLabels": "Source labels",
+    "highlightText": "<mark>Purchasing power is the amount of goods and services you can buy with your income</mark>. Tap a highlighted passage to open it in your material.",
+    "badges": "Badges",
+    "due": "8 due",
+    "topics": "3 topics",
+    "correct": "Correct",
+    "limit": "Limit reached",
+    "tabs": "Tabs",
+    "tabOverview": "Overview",
+    "tabLearn": "Learn",
+    "tabMaterial": "Material",
+    "tabAsk": "Ask",
+    "tabPanel": "Content of the \"{tab}\" tab.",
+    "progress": "Progress and mastery",
+    "sessionProgress": "Step 4 of 9",
+    "dialog": "Dialog",
+    "openDialog": "Delete subject",
+    "dialogTitle": "Delete \"Economics: Inflation & Purchasing Power\"?",
+    "dialogBody": "This deletes the subject with all its material, flashcards, quizzes and progress. This can't be undone.",
+    "dialogConfirm": "Delete for good",
+    "notices": "Notices",
+    "noticeInfo": "Study found 3 topics in your material.",
+    "noticeSuccess": "Your new password is saved.",
+    "noticeWarning": "You've reached today's limit for summaries. It resets at midnight.",
+    "noticeError": "Something went wrong while creating your quiz. Your material is safe. Please try again.",
+    "states": "Empty, loading and error states",
+    "emptyTitle": "No flashcards yet",
+    "emptyBody": "You make flashcards from a subject.",
+    "loadingText": "Loading your subjects",
+    "surface": "Surface",
+    "surfaceBody": "Used sparingly: only for the one thing that should stand out."
+  }
+}

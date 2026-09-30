@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Lint, types, unit tests, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run build
+        env:
+          CRON_SECRET: ci-only-cron-secret-value
+      - name: No secrets in the browser bundle
+        run: npm run check:bundle
+        env:
+          CRON_SECRET: ci-only-cron-secret-value
+
+  e2e:
+    name: End-to-end (desktop + phone)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Start local Supabase
+        run: npx supabase start -x studio,realtime,imgproxy,vector,logflare,supavisor,edge-runtime
+      - name: Write .env.local from local Supabase
+        run: |
+          npx supabase status -o env > supabase.env
+          . ./supabase.env
+          {
+            echo "NEXT_PUBLIC_SUPABASE_URL=$API_URL"
+            echo "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=$PUBLISHABLE_KEY"
+            echo "CRON_SECRET=ci-only-cron-secret-value"
+          } > .env.local
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Run end-to-end tests against the production build
+        run: npm run test:e2e
+        env:
+          E2E_SERVER_COMMAND: npm run start -- -p 3000
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-traces
+          path: test-results/
+          retention-days: 7
