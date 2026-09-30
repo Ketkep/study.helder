@@ -43,7 +43,7 @@
 
 ## What's next (Phase 2: Subjects and material)
 
-Starts after approval. First step: propose the database schema, RLS policies and storage policies for approval (SPEC 21), plus the questions for Phase 2.
+Starts after approval. The plan, the proposed database design and the Phase 2 questions are ready in `docs/PHASE-2-PROPOSAL.md` (written 2026-10-01, nothing built yet).
 
 ## Known issues and limitations
 
