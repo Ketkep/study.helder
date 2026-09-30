@@ -158,7 +158,8 @@
       "submit": "Inloggen",
       "forgot": "Wachtwoord vergeten?",
       "noAccount": "Nog geen account?",
-      "toSignup": "Account maken"
+      "toSignup": "Account maken",
+      "emailConfirmed": "Je e-mailadres is bevestigd. Log in om verder te gaan."
     },
     "signup": {
       "title": "Account maken",

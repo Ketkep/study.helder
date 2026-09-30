@@ -126,7 +126,8 @@ export async function requestPasswordReset(_prev: FormState, formData: FormData)
 
   const supabase = await createClient();
   const { error } = await supabase.auth.resetPasswordForEmail(parsed.data.email, {
-    redirectTo: `${await getRequestOrigin()}/auth/confirm`,
+    // Lets /auth/confirm send the user to the new-password page.
+    redirectTo: `${await getRequestOrigin()}/auth/confirm?next=reset-password`,
     captchaToken: captchaToken(formData),
   });
 

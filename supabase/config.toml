@@ -243,16 +243,18 @@ otp_expiry = 3600
 # admin_email = "admin@email.com"
 # sender_name = "Admin"
 
-# Study's auth emails: one template per type, Dutch or English based on the
-# user's saved language (user_metadata.locale). Paste the same HTML into the
-# cloud dashboard (Authentication > Emails), see docs/SETUP.md.
-[auth.email.template.confirmation]
-subject = "Bevestig je account · Confirm your Study account"
-content_path = "./supabase/templates/confirmation.html"
-
-[auth.email.template.recovery]
-subject = "Nieuw wachtwoord kiezen · Choose a new password"
-content_path = "./supabase/templates/recovery.html"
+# Study's own auth emails (Dutch or English based on user_metadata.locale)
+# live in supabase/templates. They are OFF on purpose: Supabase's free plan
+# only allows custom templates with a custom email sender (SMTP), so the cloud
+# project uses Supabase's default templates. Local mirrors that, so tests
+# cover the real flow. Turn these on together with Resend (see docs/PROGRESS.md).
+# [auth.email.template.confirmation]
+# subject = "Bevestig je account · Confirm your Study account"
+# content_path = "./supabase/templates/confirmation.html"
+#
+# [auth.email.template.recovery]
+# subject = "Nieuw wachtwoord kiezen · Choose a new password"
+# content_path = "./supabase/templates/recovery.html"
 
 # Uncomment to customize notification email template
 # [auth.email.notification.password_changed]

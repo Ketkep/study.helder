@@ -23,9 +23,7 @@ Order: **1. Supabase → 2. Vercel → 3. Supabase URL settings → 4. Test.**
    - Open `supabase/migrations/20260930120000_health_check.sql` in the GitHub repository, copy all of it, paste it into the editor and click **Run**. You should see "Success. No rows returned".
 5. Auth settings (left menu **Authentication**):
    - **Sign In / Providers** → **Email**: make sure **Confirm email** is on, and set **Minimum password length** to `8`. Click **Save**.
-   - **Emails** → **Templates**:
-     - **Confirm signup**: set the subject to `Bevestig je account · Confirm your Study account`, then replace the whole message body with the content of `supabase/templates/confirmation.html` from the repository. Click **Save**.
-     - **Reset password**: subject `Nieuw wachtwoord kiezen · Choose a new password`, body from `supabase/templates/recovery.html`. Click **Save**.
+   - **Emails** → **Templates**: **skip this, change nothing.** On the free plan Supabase only lets you edit templates once you set up your own email sender (SMTP). The app works with Supabase's default emails: they are in English and say "Confirm your email address" / "Reset your password". Study's own Dutch/English emails get switched on together with Resend, before other people sign up.
 
 > While only you test, Supabase's built-in email sends at most **2 emails per hour**, and only to members of your Supabase team (that's you). If an email doesn't arrive, wait a bit before trying again. Before anyone else signs up, we'll set up Resend (see `docs/PROGRESS.md`).
 
@@ -74,7 +72,7 @@ Email links only work for addresses on Supabase's allow list.
 On the preview link:
 
 1. Click **Begin met leren**, create an account with **your own email address** (the one you used for Supabase), tick the age box.
-2. Open the email, click **Bevestig mijn account**. You should land on your dashboard.
+2. Open the email ("Confirm your email address") **in the same browser** and click **Confirm email address**. You should land on your dashboard. (If you open it in another browser or on your phone, your account still gets confirmed; you'll see a green message and just log in.)
 3. Try **Uitloggen**, log in again, change the language in **Instellingen**, and try **Wachtwoord vergeten?**.
 4. The design system page is at `/nl/styleguide` (only on previews, never in production).
 

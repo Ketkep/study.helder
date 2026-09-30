@@ -9,9 +9,13 @@ export function uniqueEmail(prefix = "e2e"): string {
 
 type MailpitSummary = { ID: string; Subject: string; Created: string };
 
+/** Subjects of Supabase's default emails, and of our own templates. */
+export const CONFIRM_SUBJECT = /Confirm your (email|signup)|Bevestig je account/i;
+export const RESET_SUBJECT = /Reset your password|Nieuw wachtwoord kiezen/i;
+
 /**
  * Waits for the newest email to `to` whose subject matches, and returns the
- * first link in it that contains a token_hash (confirm or reset link).
+ * confirm or reset link in it (Supabase's /verify link or our token_hash link).
  */
 export async function getEmailLink(to: string, subject: RegExp): Promise<string> {
   let link: string | undefined;
@@ -27,7 +31,7 @@ export async function getEmailLink(to: string, subject: RegExp): Promise<string>
         if (!match) return undefined;
         const detail = await fetch(`${MAILPIT_URL}/api/v1/message/${match.ID}`);
         const { HTML } = (await detail.json()) as { HTML: string };
-        const href = HTML.match(/href="([^"]*token_hash=[^"]*)"/)?.[1];
+        const href = HTML.match(/href="([^"]*(?:\/auth\/v1\/verify|token_hash=)[^"]*)"/)?.[1];
         link = href?.replaceAll("&amp;", "&");
         return link;
       },
@@ -62,7 +66,7 @@ export async function logIn(
 export async function createConfirmedUser(page: Page, password = "study-e2e-password") {
   const email = uniqueEmail();
   await signUp(page, email, password);
-  const link = await getEmailLink(email, /Bevestig je account/);
+  const link = await getEmailLink(email, CONFIRM_SUBJECT);
   await page.goto(link);
   await expect(page).toHaveURL(/\/nl\/dashboard$/);
   return { email, password };

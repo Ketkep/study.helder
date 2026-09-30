@@ -1,5 +1,14 @@
 import { expect, test } from "@playwright/test";
-import { createConfirmedUser, getEmailLink, logIn, openAccountMenuIfPhone, signUp, uniqueEmail } from "./helpers";
+import {
+  CONFIRM_SUBJECT,
+  createConfirmedUser,
+  getEmailLink,
+  logIn,
+  openAccountMenuIfPhone,
+  RESET_SUBJECT,
+  signUp,
+  uniqueEmail,
+} from "./helpers";
 
 test.describe("account", () => {
   test("signed-out visitors are sent to login and come back afterwards", async ({ page }) => {
@@ -35,7 +44,7 @@ test.describe("account", () => {
     await logIn(page, email, password);
     await expect(page.getByText("Bevestig eerst je e-mailadres.")).toBeVisible();
 
-    const link = await getEmailLink(email, /Bevestig je account/);
+    const link = await getEmailLink(email, CONFIRM_SUBJECT);
     await page.goto(link);
     await expect(page).toHaveURL(/\/nl\/dashboard$/);
     await expect(page.getByRole("heading", { name: "Waar wil je mee beginnen?" })).toBeVisible();
@@ -43,7 +52,9 @@ test.describe("account", () => {
     // A confirmation link only works once.
     await page.context().clearCookies();
     await page.goto(link);
-    await expect(page).toHaveURL(/\/nl\/auth-error$/);
+    // Supabase adds its error details after "#"; the page is what matters.
+    await expect(page).toHaveURL(/\/nl\/auth-error(#.*)?$/);
+    await expect(page.getByRole("heading", { name: "Deze link werkt niet meer" })).toBeVisible();
 
     await logIn(page, email, "wrong-password");
     await expect(page.getByText("Dat e-mailadres of wachtwoord klopt niet.")).toBeVisible();
@@ -57,6 +68,23 @@ test.describe("account", () => {
     await expect(page).toHaveURL(/\/nl$/);
     await page.goto("/nl/dashboard");
     await expect(page).toHaveURL(/\/nl\/login/);
+  });
+
+  test("a confirmation link opened in another browser confirms the account", async ({ page, browser }) => {
+    const email = uniqueEmail();
+    const password = "study-e2e-password";
+    await signUp(page, email, password);
+    const link = await getEmailLink(email, CONFIRM_SUBJECT);
+
+    // A fresh browser has none of the sign-up cookies, like opening the email on your phone.
+    const other = await browser.newContext({ locale: "nl-NL" });
+    const otherPage = await other.newPage();
+    await otherPage.goto(link);
+    await expect(otherPage).toHaveURL(/\/nl\/login\?notice=email-confirmed$/);
+    await expect(otherPage.getByText("Je e-mailadres is bevestigd.")).toBeVisible();
+    await logIn(otherPage, email, password, { navigate: false });
+    await expect(otherPage).toHaveURL(/\/nl\/dashboard$/);
+    await other.close();
   });
 
   test("the session survives a reload and a new tab", async ({ page, context }) => {
@@ -77,7 +105,7 @@ test.describe("account", () => {
     await page.getByRole("button", { name: "Stuur link" }).click();
     await expect(page.getByText("Als er een account bij dit e-mailadres hoort")).toBeVisible();
 
-    const link = await getEmailLink(email, /Nieuw wachtwoord kiezen/);
+    const link = await getEmailLink(email, RESET_SUBJECT);
     await page.goto(link);
     await expect(page).toHaveURL(/\/nl\/reset-password$/);
     await page.getByLabel("Nieuw wachtwoord").fill("a-brand-new-password");

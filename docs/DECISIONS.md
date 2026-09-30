@@ -172,3 +172,12 @@ Small technical choices made while building Phase 1 (Owner: claude, allowed by S
 ### Local Supabase trimmed
 
 - **Decision:** Local Supabase runs without Studio, Realtime, Analytics, Edge Functions and a few other services (`npm run db:start`). Realtime is disabled in config because Study doesn't use it.
+
+## 2026-10-01: Default Supabase emails on the free plan
+
+- **Owner:** claude (forced by a Supabase plan limit the owner ran into)
+- **Finding:** Supabase's free plan no longer allows editing email templates unless a custom email sender (SMTP) is configured.
+- **Decision:** Use Supabase's default (English) confirmation and reset emails while only the owner tests. `/auth/confirm` now handles both link formats: the default one (`?code=...`, via Supabase's verify page) and our own templates (`?token_hash=...`). Local Supabase uses the default templates too, so the tests cover the real flow.
+- **Consequence:** A default-email link signs you in directly only in the browser where you signed up. Opened elsewhere, the account is still confirmed and the login page says so. Password-reset links must be opened in the same browser.
+- **Later:** Study's own Dutch/English templates (already in `supabase/templates`) get switched on together with Resend, before other people sign up.
+- **Rejected:** Setting up Resend now (owner chose to do it later); Supabase Pro (paid).

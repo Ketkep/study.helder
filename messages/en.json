@@ -158,7 +158,8 @@
       "submit": "Log in",
       "forgot": "Forgot your password?",
       "noAccount": "No account yet?",
-      "toSignup": "Create an account"
+      "toSignup": "Create an account",
+      "emailConfirmed": "Your email address is confirmed. Log in to continue."
     },
     "signup": {
       "title": "Create an account",

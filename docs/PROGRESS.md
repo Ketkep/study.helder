@@ -51,12 +51,13 @@ Starts after approval. First step: propose the database schema, RLS policies and
 - **"Create a subject" buttons are disabled** until Phase 2.
 - **Language and age confirmation live in the auth user's metadata** until the `profiles` table exists (Phase 2 schema). They move there once the schema is approved.
 - **Export my data / delete my account** are Phase 7. Settings says to email info@helderlabs.com until then.
+- **Auth emails are Supabase's default English emails** on the free plan (custom templates need a custom email sender). Study's own NL/EN templates are in `supabase/templates` and get switched on with Resend. Default-email links only sign you in directly in the browser where you signed up; in another browser the account is confirmed and you log in.
 - **Schema changes on the cloud project are applied by hand** (SQL Editor) for now. Automating `supabase db push` is a Phase 2 question.
 
 ## Before a public launch (not needed while only the owner tests)
 
 - **Legal review of the Privacy and Terms pages.** Both are placeholders marked as draft. The privacy statement must list all processors (Supabase, Vercel, AI provider, search provider, email provider, Cloudflare Turnstile) with verified data-use and retention terms, and name the controller.
-- Custom email provider (Resend on helderlabs.com) for auth emails: Supabase's built-in email only reaches team members and sends 2 per hour.
+- Custom email provider (Resend on helderlabs.com) for auth emails: Supabase's built-in email only reaches team members and sends 2 per hour. Then turn on Study's own NL/EN templates (`supabase/templates`, paste them in the dashboard and uncomment them in `supabase/config.toml`).
 - Turn on CAPTCHA (Turnstile keys in Vercel and Supabase).
 - Set `NEXT_PUBLIC_SITE_URL` and the Supabase Site URL to `https://study.helderlabs.com`.
 - Verify support resources for wellbeing messages (113, De Kindertelefoon: numbers and URLs).
